@@ -2,7 +2,8 @@
 source ~/.profile.d/prompt
 
 alias glog='git log --pretty=format:"%cn %cr %H: %s" --graph'
-alias gstat='git status'
+alias gst='git status'
+alias ls='ls -F'
 
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
