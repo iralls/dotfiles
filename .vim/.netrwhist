@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/iralls/Documents/workspace/nagios/plugins/lib'
+let g:netrw_dirhist_2='/Users/iralls/.vim/bundle/syntastic'
+let g:netrw_dirhist_3='/Users/iralls/Documents/workspace/nagios/config/content_engine/search'
+let g:netrw_dirhist_4='/Users/iralls/Documents/workspace/nagios/config/content_engine/postgres'
+let g:netrw_dirhist_5='/Users/iralls/Documents/workspace/puppet_content_engine/modules/solr_basic/files'
