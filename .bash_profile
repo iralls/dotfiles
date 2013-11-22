@@ -1,6 +1,7 @@
 # personalized command line
 source ~/.profile.d/prompt
 source ~/.profile.d/.git-completion
+source ~/.profile.d/.known-hosts-completion.bash
 
 alias glog='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=short --branches'
 alias gst='git status'
