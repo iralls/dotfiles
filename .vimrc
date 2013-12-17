@@ -8,6 +8,7 @@ set tabstop=4
 set shiftwidth=4
 set ls=2
 set statusline=%F%m%r%h\ [%L]\ [%{&ff}]\ %y%=[%p%%]\ [line:%03l,col:%02v]
+set noexpandtab
 
 """ for mapping Shift+Enter as newline
 nmap <S-Enter> O<Esc>j
