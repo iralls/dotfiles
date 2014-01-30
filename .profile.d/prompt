@@ -29,7 +29,7 @@ function parse_git_branch {
 
 function prompt_func() {
    previous_return_value=$?;
-   prompt="[\[\033[0;36m\]\u@\h\[\033[00m\]]\[\033[0;32m\]$(parse_git_branch)\[\033[00m\]"
+   prompt="[\[\033[0;36m\]\u@\h\[\033[00m\]] \w\e \[\033[0;32m\]$(parse_git_branch)\[\033[00m\]"
    if test $previous_return_value -eq 0
    then
        PS1="${prompt} ♨  "
