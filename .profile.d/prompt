@@ -1,42 +1,30 @@
 # Prompt
 
 function parse_git_branch {
-
- git rev-parse --git-dir &> /dev/null
- git_status="$(git status 2> /dev/null)"
- branch_pattern="^# On branch ([^${IFS}]*)"
- remote_pattern="# Your branch is (.*) of"
- diverge_pattern="# Your branch and (.*) have diverged"
- if [[ ! ${git_status} =~ "working directory clean" ]]; then
-   state="${RED} ⚐"
- fi
- # add an else if or two here if you want to get more specific
- if [[ ${git_status} =~ ${remote_pattern} ]]; then
-   if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
-     remote="${YELLOW} ▲"
-   else
-     remote="${YELLOW} ▽"
-   fi
- fi
- if [[ ${git_status} =~ ${diverge_pattern} ]]; then
-   remote="${YELLOW} ↕"
- fi
- if [[ ${git_status} =~ ${branch_pattern} ]]; then
-   branch=${BASH_REMATCH[1]}
-   echo " (${branch})${remote}${state}"
- fi
+	a=$(git symbolic-ref HEAD 2> /dev/null) || return
+	git_status=$(git status 2> /dev/null)
+	if [[ "$git_status" =~ .*"not staged for commit".* ]]; then
+		echo -e "\033[1;93m (${a#refs/heads/})"
+	elif [[ "$git_status" =~ .*"to be committed".* ]]; then
+		echo -e "\033[1;31m (${a#refs/heads/})"
+	else
+		echo -e "\033[1;32m (${a#refs/heads/})"
+	
+	fi
 }
 
-function prompt_func() {
-   previous_return_value=$?;
-   prompt="[\[\033[0;36m\]\u@\h\[\033[00m\]] \w\e \[\033[0;32m\]$(parse_git_branch)\[\033[00m\]"
-   if test $previous_return_value -eq 0
-   then
-       PS1="${prompt} ♨  "
-   else
-       PS1="${prompt}${RED} ⚡ ${COLOR_NONE} "
-   fi
-}
-
-PROMPT_COMMAND=prompt_func
-
+BLACK="\[\033[1;30m\]"
+RED="\[\033[1;31m\]"
+YELLOW="\[\033[0;33m\]"
+GREEN="\[\033[1;32m\]"
+BLUE="\[\033[1;34m\]"
+GREY="\[\033[0;37m\]"
+WHITE="\[\033[1;37m\]"
+TURQUOISE="\[\033[1;96m\]"
+RED="\[\033[1;91m\]"
+YELLOW="\[\033[1;93m\]"
+PINK="\[\033[1;95m\]"
+BLUE="\[\033[1;94m\]"
+WHITE="\[\033[1;97m\]"
+END="\[\e[0m\]"
+export PS1="[$WHITE\u$YELLOW@$WHITE\h$END] \w\[\$(parse_git_branch)\] $END$ $END"
