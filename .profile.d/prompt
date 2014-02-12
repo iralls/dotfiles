@@ -7,6 +7,8 @@ function parse_git_branch {
 		echo -e "\033[1;93m (${a#refs/heads/})"
 	elif [[ "$git_status" =~ .*"to be committed".* ]]; then
 		echo -e "\033[1;31m (${a#refs/heads/})"
+	elif [[ "$git_status" =~ .*"untracked files present".* ]]; then
+		echo -e "\033[1;96m (${a#refs/heads/})"
 	else
 		echo -e "\033[1;32m (${a#refs/heads/})"
 	
