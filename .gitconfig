@@ -1,0 +1,19 @@
+[user]
+	name = ian
+[alias]
+	co = checkout
+	d = difftool
+	refresh = !sh -c 'git stash && git pull --rebase && git fetch --tags && git stash pop'
+[core]
+	excludesfile = /Users/iralls/.gitignore
+	editor = /usr/bin/vim
+[diff]
+	tool = /usr/bin/vimdiff
+[difftool]
+	prompt = false
+[commit]
+	template = /Users/iralls/.gitmessage.txt
+[branch]
+	autosetuprebase = always
+[color]
+	ui = true
