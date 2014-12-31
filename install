@@ -1,3 +1,4 @@
 #!/bin/bash
 
 cp -r ./*.* ~/
+cp -r ./cron.d/* /etc/cron.d/

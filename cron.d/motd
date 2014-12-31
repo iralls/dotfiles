@@ -1,0 +1,1 @@
+0 * * * * root fortune -a | cowsay -f `ls /usr/share/cowsay | shuf -n 1` > /etc/motd
