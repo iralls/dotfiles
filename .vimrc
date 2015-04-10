@@ -1,5 +1,6 @@
 syntax on
-colorscheme morning
+"colorscheme morning
+colorscheme 256-grayvim
 
 set autoindent
 set showmatch
