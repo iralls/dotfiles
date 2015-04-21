@@ -37,7 +37,8 @@ if has("spell")
     nnoremap <leader>sp :set spell!<CR>
 endif
 
-call pathogen#infect()
+execute pathogen#infect()
+" you must have pylint installed for this to work with python
 
 let g:syntastic_warning_symbol = '!'
 let g:syntastic_check_on_open = 1
