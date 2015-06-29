@@ -23,6 +23,7 @@ au BufWritePre *.css  :%s/\s\+$//e
 au BufWritePre *.c  :%s/\s\+$//e
 au BufWritePre *.py  :%s/\s\+$//e
 au BufWritePre *.rb  :%s/\s\+$//e
+autocmd BufEnter *.sls setlocal filetype=yaml
 
 if &diff
 	colorscheme ron
